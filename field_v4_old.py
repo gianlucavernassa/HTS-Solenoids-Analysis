@@ -762,9 +762,7 @@ def field_magpy(current, radius, grid, position = (0.0, 0.0, 0.0), axis = (0.0, 
 
 class Pancakes(my.Collection):
     # Now introducing SI units
-    # Careful !! current : float
-	# Value of the current running through the single current loop.
-
+    
     def __init__(self, I = 1.0, radius = 0.001, rows = 2, columns = 3, 
                  dr = 0.001, dz = 0.001, offset_z = None, Npancakes = 1, gap = 0.001, **kwargs):
         """

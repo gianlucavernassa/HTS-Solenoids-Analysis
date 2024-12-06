@@ -151,26 +151,26 @@ def cumulate_effects(layers,solutions, additional_epsz, ax1= None, ax2=None, col
         sr = obj['C'][0,0]*er + obj['C'][0,1]*eth + obj['C'][0,2]*epsz_ii 
         sth = obj['C'][1,0]*er + obj['C'][1,1]*eth + obj['C'][1,2]*epsz_ii 
         
-        _newd = {'r': rr, 'sr': sr, 'sth': sth}
+        _newd = {ii:{'r': rr, 'sr': sr, 'sth': sth}}
         if ii ==0:
-            data = [_newd]
+            data = _newd
         else:
-            data.append(_newd)
+            data.update(_newd)
                 
         if ax1:
             if ii ==0:
                 if col:
-                    ax1.plot(rr,sr*1e-6,'-', color = col, label = param)
-                    ax2.plot(rr,sth*1e-6,'-', color = col, label = param)
+                    ax1.plot(rr*1e3,sr*1e-6,'-', color = col, label = param)
+                    ax2.plot(rr*1e3,sth*1e-6,'-', color = col, label = param)
                 else:
-                    ax1.plot(rr,sr*1e-6,'-',  label = param)
-                    ax2.plot(rr,sth*1e-6,'-',  label = param)
+                    ax1.plot(rr*1e3,sr*1e-6,'-',  label = param)
+                    ax2.plot(rr*1e3,sth*1e-6,'-',  label = param)
             else:
                 if col:
-                    ax1.plot(rr,sr*1e-6,'-', color = col)
-                    ax2.plot(rr,sth*1e-6,'-', color = col)
+                    ax1.plot(rr*1e3,sr*1e-6,'-', color = col)
+                    ax2.plot(rr*1e3,sth*1e-6,'-', color = col)
                 else:
-                    ax1.plot(rr,sr*1e-6,'-')
-                    ax2.plot(rr,sth*1e-6,'-')
+                    ax1.plot(rr*1e3,sr*1e-6,'-')
+                    ax2.plot(rr*1e3,sth*1e-6,'-')
                     
     return data
